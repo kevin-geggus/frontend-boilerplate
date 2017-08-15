@@ -1,0 +1,10 @@
+@import "../../variables.css";
+
+:root {
+}
+
+
+.footer {
+    background-image: url("img/bg_right.jpg");
+    color: blue;
+}

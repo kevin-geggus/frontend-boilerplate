@@ -1,0 +1,22 @@
+@import "../variables.css";
+
+:root {
+
+}
+
+body {
+    font-family: var(--dotsunited-base-font-family);
+    font-size: var(--dotsunited-base-font-size);
+    font-weight: var(--dotsunited-base-font-weight);
+    line-height: var(--dotsunited-base-line-height);
+    color: var(--dotsunited-base-font-color);
+}
+
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+}

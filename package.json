@@ -1,0 +1,46 @@
+{
+  "name": "frontend-boilerplate",
+  "version": "0.0.1",
+  "author": "Dots United GmbH",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf web/assets/scripts && webpack",
+    "watch": "rimraf web/scripts && webpack --watch --progress",
+    "build-modernizr": "modernizr -c modernizr-config.json -d assets/main/base/modernizr.js"
+  },
+  "dependencies": {
+    "es6-promise": "4.1.1",
+    "fg-loadcss": "1.3.1",
+    "fontfaceobserver": "2.0.13",
+    "modernizr": "3.5.0",
+    "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "@types/lodash": "4.14.72",
+    "babel-core": "6.25.0",
+    "babel-loader": "7.1.1",
+    "babel-preset-es2015": "6.24.1",
+    "@types/node": "8.0.20",
+    "css-loader": "0.28.4",
+    "exports-loader": "0.6.4",
+    "extract-text-webpack-plugin": "3.0.0",
+    "file-loader": "0.11.2",
+    "grunt": "1.0.1",
+    "grunt-contrib-clean": "1.1.0",
+    "grunt-contrib-imagemin": "2.0.1",
+    "grunt-webpack": "3.0.2",
+    "image-webpack-loader": "3.3.1",
+    "imports-loader": "0.7.1",
+    "postcss-cssnext": "3.0.2",
+    "postcss-focus": "2.0.0",
+    "postcss-import": "10.0.0",
+    "postcss-loader": "2.0.6",
+    "postcss-reporter": "5.0.0",
+    "cssnano": "3.10.0",
+    "raw-loader": "0.5.1",
+    "rimraf": "2.6.1",
+    "style-loader": "0.18.2",
+    "url-loader": "0.5.9",
+    "webpack": "3.5.4"
+  }
+}

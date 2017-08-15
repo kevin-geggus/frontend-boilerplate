@@ -1,0 +1,1 @@
+require('./typography-critical.css');

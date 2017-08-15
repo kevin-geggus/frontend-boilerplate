@@ -1,0 +1,2 @@
+require('./footer');
+require('./navigation');
