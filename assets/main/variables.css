@@ -41,7 +41,7 @@
     /* Transition */
     /* ---------------------------------------------------*/
 
-    --dotsunited-off-canvas-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    --dotsunited-off-canvas-transition-timing-function: cubic-bezier(0.23, 1, 0.33, 1);
 
     /* Clearfix Mixin */
     /* ---------------------------------------------------*/

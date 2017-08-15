@@ -54,11 +54,45 @@ module.exports = {
                 })
               },
                 {
-                  test: /\.(png|svg|jpg|gif)$/,
-                  loader: 'file-loader',
-                  options: {
-                    name: 'static/[hash].[ext]',
-                  }
+                  test: /\.(gif|png|jpe?g|svg)$/i,
+                  loaders: [
+                    {
+                      loader: 'file-loader',
+                      options: {
+                        name: 'static/[hash].[ext]',
+                      },
+                    },
+                    {
+                      loader: 'image-webpack-loader',
+                      options: {
+                        mozjpeg: {
+                          quality: 65
+                        },
+                        pngquant:{
+                          quality: "65-90",
+                          speed: 4
+                        },
+                        svgo:{
+                          plugins: [
+                            {
+                              removeViewBox: false
+                            },
+                            {
+                              removeEmptyAttrs: false
+                            }
+                          ]
+                        },
+                        gifsicle: {
+                          optimizationLevel: 7,
+                          interlaced: false
+                        },
+                        optipng: {
+                          optimizationLevel: 7,
+                          interlaced: false
+                        }
+                      }
+                    },
+                  ],
                 },
                 {
                   test: /\.(woff|woff2|eot|ttf|otf)$/,
