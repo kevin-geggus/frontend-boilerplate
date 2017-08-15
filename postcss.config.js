@@ -1,8 +1,22 @@
 module.exports = ({ file, options, env }) => ({
-    parser: file.extname === '.sss' ? 'sugarss' : false,
     plugins: {
-    'postcss-import': { root: file.dirname },
-    'postcss-cssnext': options.cssnext ? options.cssnext : false,
-    'cssnano': env === 'production' ? options.cssnano : false
+      'postcss-import': {
+          root: file.dirname
+      },
+      'postcss-cssnext': {
+        browsers: ['last 2 versions', 'IE >= 9'],
+        warnForDuplicates: false
+      },
+      'postcss-reporter': {
+        clearMessages: true
+      },
+      'cssnano': {
+        preset: ['default', {
+          autoprefixer: false,
+          discardComments: {
+            removeAll: true,
+          },
+        }]
+      }
     }
 });

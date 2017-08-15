@@ -6,13 +6,13 @@ and lightning fast Webdevelopment projects.
 
 Setup
 ---
-To start new project with "path" update webpackconfig
+To start new project add your assets paths in webpack.config.js.
 
 ```bash
 npm install
 ```
 ```bash
-npm install
+npm run build
 ```
 
 Plugins

@@ -1,18 +1,13 @@
-let _ = require('lodash');
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// PostCSS plugins
-const postcssImport = require('postcss-import');
-const cssnext = require('postcss-cssnext');
-const postcssFocus = require('postcss-focus');
-const postcssReporter = require('postcss-reporter');
-const cssnano = require('cssnano');
+//configure assets path
+const assetPath = './assets/main/index.js';
+const assetPathCritical = './assets/main/index-critical';
 
-let
-
-let babelOptions = {
+//configure babel presets
+const babelOptions = {
   "presets": "es2015"
 };
 
@@ -21,8 +16,8 @@ module.exports = {
     target: 'web',
     stats: true,
     entry: {
-        main: ['./assets/webpack-public-path', './assets/main/index.js'],
-        'main-critical': ['./assets/webpack-public-path', './assets/main/index-critical']
+        main: ['./assets/webpack-public-path', assetPath],
+        'main-critical': ['./assets/webpack-public-path', assetPathCritical]
     },
     output: {
         path: path.join(__dirname, 'web/assets/scripts'),
@@ -90,6 +85,13 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
             }
+        }),
+        new webpack.ProvidePlugin({
+          // Automtically detect jQuery and $ as free var in modules
+          // and inject the jquery library
+          // This is required by many jquery plugins
+          jQuery: 'jquery',
+          $: 'jquery'
         }),
         // OccurrenceOrderPlugin is needed for long-term caching to work properly.
         // See http://mxs.is/googmv
