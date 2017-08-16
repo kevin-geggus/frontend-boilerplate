@@ -6,12 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const assetPath = './assets/main/index.js';
 const assetPathCritical = './assets/main/index-critical';
 
-//configure babel presets
-const babelOptions = {
-  "presets": "es2015"
-};
-
-
 module.exports = {
     target: 'web',
     stats: true,
@@ -27,90 +21,81 @@ module.exports = {
     },
     module: {
         rules: [
-              {
-                  test: /\.js$/,
-                  exclude: /node_modules/,
-                  loader: 'babel-loader',
-                  options: babelOptions
-              },
-              {
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+            {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
-                  fallback: 'style-loader',
-                  use: [
-                    {
-                      loader: 'css-loader',
-                      options: {
-                        importLoaders: 1,
-                        plugins: (loader) => [
-                          require('postcss-import')({root: loader.resourcePath}),
-                          require('postcss-cssnext')(),
-                          require('cssnano')()
-                        ],
-                      }
-                    },
-                    'postcss-loader'
-                  ]
-                })
-              },
-                {
-                  test: /\.(gif|png|jpe?g|svg)$/i,
-                  loaders: [
-                    {
-                      loader: 'file-loader',
-                      options: {
-                        name: 'static/[hash].[ext]',
-                      },
-                    },
-                    {
-                      loader: 'image-webpack-loader',
-                      options: {
-                        mozjpeg: {
-                          quality: 65
-                        },
-                        pngquant:{
-                          quality: "65-90",
-                          speed: 4
-                        },
-                        svgo:{
-                          plugins: [
-                            {
-                              removeViewBox: false
-                            },
-                            {
-                              removeEmptyAttrs: false
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1,
+                                minimize: true,
                             }
-                          ]
                         },
-                        gifsicle: {
-                          optimizationLevel: 7,
-                          interlaced: false
+                        'postcss-loader'
+                    ]
+                })
+            },
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                loaders: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'static/[hash].[ext]',
                         },
-                        optipng: {
-                          optimizationLevel: 7,
-                          interlaced: false
-                        }
-                      }
                     },
-                  ],
-                },
-                {
-                  test: /\.(woff|woff2|eot|ttf|otf)$/,
-                  loader: 'file-loader',
-                  options: {
-                    name: 'static/[hash].[ext]',
-                  }
-                },
-                {
-                    test: /modernizr\.js$/,
-                    use: ['imports-loader?this=>window', 'exports-loader?window.Modernizr']
-                },
-                {
-                    test: /cssrelpreload\.js$/,
-                    loaders: ['imports-loader?this=>window']
-                }
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                quality: 65
+                            },
+                            pngquant:{
+                                quality: "65-90",
+                                speed: 4
+                            },
+                            svgo:{
+                                plugins: [
+                                    {
+                                        removeViewBox: false
+                                    },
+                                    {
+                                        removeEmptyAttrs: false
+                                    }
+                                ]
+                            },
+                            gifsicle: {
+                                optimizationLevel: 7,
+                                interlaced: false
+                            },
+                            optipng: {
+                                optimizationLevel: 7,
+                                interlaced: false
+                            }
+                        }
+                    },
+                ],
+            },
+            {
+              test: /\.(woff|woff2|eot|ttf|otf)$/,
+              loader: 'file-loader',
+              options: {
+                  name: 'static/[hash].[ext]',
+              }
+            },
+            {
+                test: /cssrelpreload\.js$/,
+                loaders: ['imports-loader?this=>window']
+            }
 
-            ]
+        ]
 
     },
 
