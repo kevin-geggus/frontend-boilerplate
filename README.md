@@ -11,6 +11,11 @@ To start new project add your assets paths in webpack.config.js.
 ```bash
 npm install
 ```
+At development run:
+```bash
+npm run watch
+```
+For production build run:
 ```bash
 npm run build
 ```
