@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const assetPath = './assets/main/index.js';
 const assetPathCritical = './assets/main/index-critical';
 
-const webpackDev = {
+const webpack = {
     target: 'web',
     stats: true,
     entry: {
@@ -121,4 +121,4 @@ const webpackDev = {
     ]
 };
 
-module.exports = webpackDev;
+module.exports = webpack;
