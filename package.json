@@ -5,8 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rimraf web/assets/scripts && webpack",
-    "watch": "rimraf web/scripts && webpack --watch --progress",
-    "build-modernizr": "modernizr -c modernizr-config.json -d assets/main/base/modernizr.js"
+    "watch": "rimraf web/scripts && webpack --watch --progress"
   },
   "browserlist": [
     "last 2 versions",
