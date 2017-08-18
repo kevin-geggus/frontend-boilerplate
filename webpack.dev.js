@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const assetPath = './assets/main/index.js';
 const assetPathCritical = './assets/main/index-critical';
 
-const webpack = {
+const webpackConfig = {
     target: 'web',
     stats: true,
     entry: {
@@ -14,10 +14,13 @@ const webpack = {
         'main-critical': ['./assets/webpack-public-path', assetPathCritical]
     },
     output: {
-        path: path.join(__dirname, 'web/assets/scripts'),
+        path: path.join(__dirname, 'dist/assets/scripts'),
         publicPath: '/assets/scripts/',
         filename: '[name].js', // append ?[hash] to fix entry chunks not updated correctly
         chunkFilename: '[name].[chunkhash].js'
+    },
+    devServer: {
+      contentBase: './dist'
     },
     module: {
         rules: [
@@ -121,4 +124,4 @@ const webpack = {
     ]
 };
 
-module.exports = webpack;
+module.exports = webpackConfig;
