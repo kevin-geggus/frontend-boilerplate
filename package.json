@@ -4,8 +4,8 @@
   "author": "Dots United GmbH",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf web/assets/scripts && webpack",
-    "watch": "rimraf web/scripts && webpack --watch --progress"
+    "build": "rimraf web/assets/scripts && webpack --env=prod",
+    "watch": "rimraf web/scripts && webpack --env=dev --watch --progress"
   },
   "browserlist": [
     "last 2 versions",
