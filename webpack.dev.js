@@ -10,8 +10,18 @@ const webpackConfig = {
     target: 'web',
     stats: true,
     entry: {
-        main: ['./assets/webpack-public-path', assetPath],
-        'main-critical': ['./assets/webpack-public-path', assetPathCritical]
+        main: [
+          './assets/webpack-public-path',
+          assetPath,
+          'webpack-dev-server/client?http://localhost:9000',
+          'webpack/hot/only-dev-server'
+        ],
+        'main-critical': [
+            './assets/webpack-public-path',
+            assetPathCritical,
+            'webpack-dev-server/client?http://localhost:9000',
+            'webpack/hot/only-dev-server'
+        ],
     },
     output: {
         path: path.join(__dirname, 'dist/assets/scripts'),
@@ -20,7 +30,9 @@ const webpackConfig = {
         chunkFilename: '[name].[chunkhash].js'
     },
     devServer: {
-      contentBase: './dist'
+      contentBase: path.join(__dirname, 'dist/'),
+      compress: true,
+      port: 9000
     },
     module: {
         rules: [
