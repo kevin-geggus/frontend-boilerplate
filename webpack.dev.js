@@ -6,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const assetPath = './assets/main/index.js';
 const assetPathCritical = './assets/main/index-critical';
 
-const webpackDev = {
+const webpackConfig = {
     target: 'web',
     stats: true,
     entry: {
@@ -100,11 +100,6 @@ const webpackDev = {
     },
 
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
-        }),
         new webpack.ProvidePlugin({
           // Automtically detect jQuery and $ as free var in modules
           // and inject the jquery library
@@ -121,4 +116,4 @@ const webpackDev = {
     ]
 };
 
-module.exports = webpackDev;
+module.exports = webpackConfig;
