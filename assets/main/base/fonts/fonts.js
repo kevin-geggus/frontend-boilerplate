@@ -1,9 +1,9 @@
-var shared = require('./fonts-shared');
+import shared from './fonts-shared';
 
-var cookieDays = 1;
+let cookieDays = 1;
 
 function setCookie() {
-    var date = new Date();
+  const date = new Date();
     date.setTime(date.getTime() + (cookieDays * 24 * 60 * 60 * 1000));
 
     window.document.cookie = 'fonts-loaded=true; expires=' + date.toGMTString() + '; path=/';
@@ -11,9 +11,9 @@ function setCookie() {
 
 if (!shared.check()) {
     require.ensure(['fontfaceobserver/fontfaceobserver'], function() {
-        var FontFaceObserver = require('fontfaceobserver/fontfaceobserver');
+        const FontFaceObserver = require('fontfaceobserver/fontfaceobserver');
 
-        var observer = new FontFaceObserver('Montserrat');
+        const observer = new FontFaceObserver('Montserrat');
 
         observer
             .load()

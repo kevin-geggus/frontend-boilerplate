@@ -1,1 +1,1 @@
-require('./header/index-critical');
+import './header/index-critical';

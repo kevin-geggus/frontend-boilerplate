@@ -1,3 +1,3 @@
-require('./base');
-require('./elements');
-require('./components');
+import './base';
+import './elements';
+import './components';

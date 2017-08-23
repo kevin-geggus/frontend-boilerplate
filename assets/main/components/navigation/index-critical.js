@@ -1,1 +1,1 @@
-require('./style-critical.css');
+import './style-critical.css';

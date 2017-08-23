@@ -1,5 +1,5 @@
-require('./fonts-montserrat.css');
+import './fonts-montserrat.css';
 
-var shared = require('./fonts-shared');
+import shared from './fonts-shared';
 
 shared.check() && shared.loaded();

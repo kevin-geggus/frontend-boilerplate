@@ -28,7 +28,9 @@
     }
   },
   "babel": {
-    "presets": ["env"]
+    "presets": [
+      "env"
+    ]
   },
   "dependencies": {
     "es6-promise": "4.1.1",

@@ -1,3 +1,3 @@
-require('./fonts/fonts-critical.js');
+import './fonts/fonts-critical.js';
 
-require('./base.css');
+import './base.css';

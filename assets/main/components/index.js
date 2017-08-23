@@ -1,2 +1,2 @@
-require('./footer');
-require('./navigation');
+import './footer';
+import './navigation';

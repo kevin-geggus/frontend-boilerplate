@@ -1,1 +1,1 @@
-require('./typography-critical.css');
+import './typography-critical.css';
