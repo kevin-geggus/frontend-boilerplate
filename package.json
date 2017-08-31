@@ -8,9 +8,11 @@
     "watch": "rimraf dist/scripts && webpack --env=dev --watch --progress",
     "start": "webpack-dev-server --env=dev --open"
   },
-  "browserlist": [
-    "last 2 versions",
-    "IE >= 9"
+  "browserslist": [
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "not ie < 10"
   ],
   "postcss": {
     "plugins": {
@@ -18,10 +20,6 @@
         "root": "file.dirname"
       },
       "postcss-cssnext": {
-        "browsers": [
-          "last 2 versions",
-          "IE >= 9"
-        ],
         "minimize": true
       },
       "postcss-flexbugs-fixes": {},
@@ -31,20 +29,7 @@
     }
   },
   "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "last 2 versions",
-              "safari >= 7",
-              "IE >= 9"
-            ]
-          }
-        }
-      ]
-    ]
+    "presets": ["env"]
   },
   "dependencies": {
     "es6-promise": "4.1.1",
