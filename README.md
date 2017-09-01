@@ -26,5 +26,3 @@ Plugins
 * [Webpack](https://github.com/webpack/webpack) workflow
 * [cssnext](http://cssnext.io/) Use tomorrow’s CSS syntax, today.
 * [postcss-cssnext](https://github.com/MoOx/postcss-cssnext)
-
-Test for Pull Request
